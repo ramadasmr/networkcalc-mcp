@@ -1,0 +1,10 @@
+[project]
+name = "networkcalc-mcp"
+version = "0.1.0"
+description = "MCP Server for utilities from networkcalc.com"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "aiohttp>=3.12.15",
+    "mcp[cli]>=1.13.0",
+]
