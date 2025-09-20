@@ -9,7 +9,6 @@ mcp = FastMCP(name="NetworkCalc MCP Server")
 async def fetch_dns_lookup(domain: str) -> str:
     url = f"https://networkcalc.com/api/dns/lookup/{domain}"
     async with aiohttp.ClientSession() as session:
-        # Pass ssl=ssl_context here on the get request
         async with session.get(url) as response:
             if response.status == 200:
                 dns_data = await response.json()
@@ -17,11 +16,31 @@ async def fetch_dns_lookup(domain: str) -> str:
             else:
                 return f"Failed to retrieve DNS data for {domain}. Status code: {response.status}"
 
+async def fetch_whois_lookup(domain: str) -> str:
+    url = f"https://networkcalc.com/api/dns/whois/{domain}"
+    async with aiohttp.ClientSession() as session:
+        async with session.get(url) as response:
+            if response.status == 200:
+                whois_data = await response.json()
+                return str(whois_data)
+            else:
+                return f"Failed to retrieve WHOIS data for {domain}. Status code: {response.status}"
+
+#
+# tools definition 
+#
+
 @mcp.tool()
 async def dns_lookup(domain: str) -> str:
     """Fetch DNS info for a given domain"""
     dns_info = await fetch_dns_lookup(domain)
     return f"DNS lookup results for {domain}:\n{dns_info}"
+
+@mcp.tool()
+async def whois_lookup(domain: str) -> str:
+    """Fetch WHOIS info for a given domain"""
+    whois_info = await fetch_whois_lookup(domain)
+    return f"WHOIS lookup results for {domain}:\n{whois_info}"
 
 if __name__ == "__main__":
     # Get the Starlette app and add CORS middleware
