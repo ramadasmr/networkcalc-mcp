@@ -26,6 +26,17 @@ async def fetch_whois_lookup(domain: str) -> str:
             else:
                 return f"Failed to retrieve WHOIS data for {domain}. Status code: {response.status}"
 
+async def fetch_spf_lookup(domain: str) -> str:
+    url = f"https://networkcalc.com/api/dns/spf/{domain}"
+    async with aiohttp.ClientSession() as session:
+        async with session.post(url) as response:
+            if response.status == 200:
+                spf_data = await response.json()
+                return str(spf_data)
+            else:
+                return f"Failed to retrieve SPF info for {domain}. Status code: {response.status}"
+
+
 #
 # tools definition 
 #
@@ -41,6 +52,12 @@ async def whois_lookup(domain: str) -> str:
     """Fetch WHOIS info for a given domain"""
     whois_info = await fetch_whois_lookup(domain)
     return f"WHOIS lookup results for {domain}:\n{whois_info}"
+
+@mcp.tool()
+async def spf_lookup(domain: str) -> str:
+    """Fetch SPF info for a given domain or host"""
+    spf_info = await fetch_spf_lookup(domain)
+    return f"SPF lookup results for {domain}:\n{spf_info}"
 
 if __name__ == "__main__":
     # Get the Starlette app and add CORS middleware
