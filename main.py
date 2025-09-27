@@ -47,6 +47,16 @@ async def fetch_cert_info(domain: str) -> str:
                 return f"Failed to retrieve SPF info for {domain}. Status code: {response.status}"
 
 
+async def fetch_subnet_info(subnet: str) -> str:
+    url = f"https://networkcalc.com/api/ip/{subnet}"
+    async with aiohttp.ClientSession() as session:
+        async with session.get(url) as response:
+            if response.status == 200:
+                subnet_data = await response.json()
+                return str(subnet_data)
+            else:
+                return f"Failed to retrieve SPF info for {subnet}. Status code: {response.status}"
+
 
 #
 # tools definition 
@@ -75,6 +85,18 @@ async def certificate_info(domain: str) -> str:
     """Fetch certificate for a given domain """
     cert_info = await fetch_cert_info(domain)
     return f"Fetching certificate for {domain}:\n{cert_info}"
+
+@mcp.tool()
+async def calculate_subnet(subnet: str) -> str:
+    """Fetch Subnet info for a given ipaddress/subnet/CIDR """
+    subnet_info = await fetch_subnet_info(subnet)
+    return f"Fetching Subnet info for {subnet}:\n{subnet_info}"
+
+
+
+#
+# Main
+#
 
 if __name__ == "__main__":
     # Get the Starlette app and add CORS middleware
