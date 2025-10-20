@@ -12,3 +12,13 @@ This server includes support for the following tools:
 - 🔐 **Certificate Lookup** – Check SSL/TLS certificates for domains.
 - 🧮 **Subnet Lookup** – Analyze IP subnets and CIDR ranges.
 
+## 📖 How to Use
+
+Run below command to add it to claude 
+```
+claude mcp add --transport http ramadasmr-networkcalc-mcp "https://server.smithery.ai/@ramadasmr/networkcalc-mcp/mcp"
+```
+
+To see full usage instructions and available endpoints, please refer to the hosted service:
+👉 [https://smithery.ai/server/@ramadasmr/networkcalc-mcp](https://smithery.ai/server/@ramadasmr/networkcalc-mcp)
+
