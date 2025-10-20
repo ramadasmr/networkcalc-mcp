@@ -1,4 +1,5 @@
 # 🌐 networkcalc-mcp
+[![smithery badge](https://smithery.ai/badge/@ramadasmr/networkcalc-mcp)](https://smithery.ai/server/@ramadasmr/networkcalc-mcp)
 
 **networkcalc-mcp** is a server component (MCP Server) that powers utility services from [networkcalc.com](https://networkcalc.com). It provides a set of networking tools accessible via API or integration with your own frontend.
 
@@ -12,3 +13,11 @@ This server includes support for the following tools:
 - 🔐 **Certificate Lookup** – Check SSL/TLS certificates for domains.
 - 🧮 **Subnet Lookup** – Analyze IP subnets and CIDR ranges.
 
+
+### Installing via Smithery
+
+To install NetworkCalc automatically via [Smithery](https://smithery.ai/server/@ramadasmr/networkcalc-mcp):
+
+```bash
+npx -y @smithery/cli install @ramadasmr/networkcalc-mcp
+```
