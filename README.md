@@ -1,7 +1,7 @@
 # 🌐 networkcalc-mcp
 [![smithery badge](https://smithery.ai/badge/@ramadasmr/networkcalc-mcp)](https://smithery.ai/server/@ramadasmr/networkcalc-mcp)
 
-**networkcalc-mcp** is a server component (MCP Server) that powers utility services from [networkcalc.com](https://networkcalc.com). It provides a set of networking tools accessible via API or integration with your own frontend.
+**networkcalc-mcp** is a server component (MCP Server) that powers utility services from [networkcalc.com](https://networkcalc.com). It provides a set of network tools accessible via API or integration with your own frontend.
 
 ## 🔧 Features
 
