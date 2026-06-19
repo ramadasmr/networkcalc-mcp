@@ -1,3 +1,5 @@
+[![MseeP.ai Security Assessment Badge](https://mseep.net/pr/ramadasmr-networkcalc-mcp-badge.png)](https://mseep.ai/app/ramadasmr-networkcalc-mcp)
+
 # 🌐 networkcalc-mcp
 [![smithery badge](https://smithery.ai/badge/@ramadasmr/networkcalc-mcp)](https://smithery.ai/server/@ramadasmr/networkcalc-mcp)
 
